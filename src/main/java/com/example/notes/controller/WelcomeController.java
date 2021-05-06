@@ -10,4 +10,9 @@ public class WelcomeController {
     ResponseEntity<String> welcome() {
         return ResponseEntity.ok("Welcome");
     }
+
+    @GetMapping(value = "/welcome2")
+    ResponseEntity<String> welcome2() {
+        return ResponseEntity.ok("Welcome - Test code build");
+    }
 }
