@@ -7,14 +7,14 @@ phases:
   pre_build:
     commands:
       - echo "Entered the pre-build phase"
-    build:
-      commands:
-        - echo "Entered build phase"
-        - mvn clean install
-    post_build:
-      commands:
-        - echo "Entered the post-build phase"
-        - mv target/aws-note.jar app.jar
+  build:
+    commands:
+      - echo "Entered build phase"
+      - mvn clean install
+  post_build:
+     commands:
+       - echo "Entered the post-build phase"
+       - mv target/aws-note.jar app.jar
 artifacts:
   files:
     # publish the now top level app.jar as the artifact
