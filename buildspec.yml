@@ -5,8 +5,8 @@ phases:
     runtime-versions:
       java: corretto8
   pre_build:
-      commands:
-        - echo "Entered the pre-build phase"
+    commands:
+      - echo "Entered the pre-build phase"
     build:
       commands:
         - echo "Entered build phase"
@@ -17,5 +17,5 @@ phases:
         - mv target/aws-note.jar app.jar
 artifacts:
   files:
-      # publish the now top level app.jar as the artifact
-      - app.jar
+    # publish the now top level app.jar as the artifact
+    - app.jar
