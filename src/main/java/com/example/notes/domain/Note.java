@@ -1,6 +1,7 @@
 package com.example.notes.domain;
 
 import com.example.notes.data.Status;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,4 +25,14 @@ public class Note extends Domain implements Serializable {
     @Column
     @Enumerated(EnumType.ORDINAL)
     private Status status;
+
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name = "author_id")
+    private Author author;
+
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name = "category_id")
+    private Category category;
 }

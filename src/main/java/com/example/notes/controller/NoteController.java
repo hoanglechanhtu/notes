@@ -16,4 +16,14 @@ public class NoteController {
     ResponseEntity notes() {
         return ResponseEntity.ok(noteService.notes());
     }
+
+    @GetMapping(value = "/authors")
+    ResponseEntity authors() {
+        return ResponseEntity.ok(noteService.authors());
+    }
+
+    @GetMapping(value = "/categories")
+    ResponseEntity categories() {
+        return ResponseEntity.ok(noteService.categories());
+    }
 }
