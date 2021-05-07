@@ -43,7 +43,7 @@ spring:
 ## MySQL
 mysql:
   datasource:
-    url: jdbc:mysql://localhost:3306/notes #?allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true&nullCatalogMeansCurrent=true
+    url: jdbc:mysql://database-notes.chzc0pfh4lgm.ap-southeast-1.rds.amazonaws.com:3306/notes #?allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true&nullCatalogMeansCurrent=true
     username: tuhlc
     password: Lehuuvolong123!
     driver-class-name: com.mysql.jdbc.Driver
