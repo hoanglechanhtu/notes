@@ -2,8 +2,7 @@ package com.example.notes.domain;
 
 import com.example.notes.data.Status;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -11,6 +10,9 @@ import java.io.Serializable;
 @Entity
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "note")
 public class Note extends Domain implements Serializable {
     @Column

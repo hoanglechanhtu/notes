@@ -1,8 +1,7 @@
 package com.example.notes.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,9 +11,12 @@ import java.io.Serializable;
 import java.util.Set;
 
 @Entity
-@Table(name = "author")
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "author")
 public class Author extends Domain implements Serializable {
     @Column
     private String uuid;
@@ -26,3 +28,6 @@ public class Author extends Domain implements Serializable {
     @JsonIgnore
     private Set<Note> noteSet;
 }
+
+
+
