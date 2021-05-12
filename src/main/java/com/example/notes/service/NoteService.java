@@ -2,20 +2,20 @@ package com.example.notes.service;
 
 import com.example.notes.domain.Author;
 import com.example.notes.domain.Category;
-import com.example.notes.domain.Note;
 import com.example.notes.dto.NoteCreateDto;
 import com.example.notes.dto.NoteUpdateDto;
+import com.example.notes.dto.NoteViewDto;
 
 import java.util.List;
 
 public interface NoteService {
-    List<Note> notes();
+    List<NoteViewDto> notes();
 
     List<Author> authors();
 
     List<Category> categories();
 
-    void createNote(NoteCreateDto noteCreateDto);
+    NoteViewDto createNote(NoteCreateDto noteCreateDto);
 
-    void updateNote(NoteUpdateDto noteUpdateDto);
+    NoteViewDto updateNote(NoteUpdateDto noteUpdateDto);
 }
