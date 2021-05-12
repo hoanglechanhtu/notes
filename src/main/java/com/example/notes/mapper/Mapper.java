@@ -5,4 +5,5 @@ public interface Mapper<T, D> {
 
     D toModel(T t);
 
+    void populateModel(D d, T t);
 }

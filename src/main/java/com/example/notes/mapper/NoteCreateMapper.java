@@ -12,7 +12,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 @Component
-public class NoteMapper implements Mapper<NoteCreateDto, Note> {
+public class NoteCreateMapper implements Mapper<NoteCreateDto, Note> {
 
     @Autowired
     private AuthorRepository authorRepository;
@@ -36,5 +36,9 @@ public class NoteMapper implements Mapper<NoteCreateDto, Note> {
                 .category(Objects.nonNull(noteCreateDto.getCategoryId()) ? categoryRepository.getOne(noteCreateDto.getCategoryId()) : null)
                 .build();
 
+    }
+
+    @Override
+    public void populateModel(Note note, NoteCreateDto noteCreateDto) {
     }
 }
