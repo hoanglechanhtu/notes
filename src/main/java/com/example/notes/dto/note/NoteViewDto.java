@@ -1,4 +1,4 @@
-package com.example.notes.dto;
+package com.example.notes.dto.note;
 
 import com.example.notes.domain.Author;
 import com.example.notes.domain.Category;

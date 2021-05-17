@@ -3,12 +3,18 @@ package com.example.notes.service.impl;
 import com.example.notes.domain.Author;
 import com.example.notes.domain.Category;
 import com.example.notes.domain.Note;
-import com.example.notes.dto.NoteCreateDto;
-import com.example.notes.dto.NoteUpdateDto;
-import com.example.notes.dto.NoteViewDto;
-import com.example.notes.mapper.NoteCreateMapper;
-import com.example.notes.mapper.NoteUpdateMapper;
-import com.example.notes.mapper.NoteViewMapper;
+import com.example.notes.dto.author.AuthorCreateDto;
+import com.example.notes.dto.author.AuthorUpdateDto;
+import com.example.notes.dto.author.AuthorViewDto;
+import com.example.notes.dto.note.NoteCreateDto;
+import com.example.notes.dto.note.NoteUpdateDto;
+import com.example.notes.dto.note.NoteViewDto;
+import com.example.notes.mapper.author.AuthorCreateMapper;
+import com.example.notes.mapper.author.AuthorUpdateMapper;
+import com.example.notes.mapper.author.AuthorViewMapper;
+import com.example.notes.mapper.note.NoteCreateMapper;
+import com.example.notes.mapper.note.NoteUpdateMapper;
+import com.example.notes.mapper.note.NoteViewMapper;
 import com.example.notes.repository.AuthorRepository;
 import com.example.notes.repository.CategoryRepository;
 import com.example.notes.repository.NoteRepository;
@@ -35,6 +41,23 @@ public class NoteServiceImpl implements NoteService {
     private NoteUpdateMapper noteUpdateMapper;
     @Autowired
     private NoteViewMapper noteViewMapper;
+    @Autowired
+    private AuthorCreateMapper authorCreateMapper;
+    @Autowired
+    private AuthorUpdateMapper authorUpdateMapper;
+    @Autowired
+    private AuthorViewMapper authorViewMapper;
+
+    @Override
+    public AuthorViewDto updateAuthor(AuthorUpdateDto authorUpdateDto) {
+        Optional<Author> authorOpt = authorRepository.findByUuid(authorUpdateDto.getUuid());
+        authorOpt.ifPresent(author -> {
+            authorUpdateMapper.populateModel(author, authorUpdateDto);
+            authorRepository.save(author);
+        });
+
+        return authorOpt.map(author -> authorViewMapper.toDto(author)).orElse(null);
+    }
 
     @Override
     public List<NoteViewDto> notes() {
@@ -60,12 +83,19 @@ public class NoteServiceImpl implements NoteService {
     }
 
     @Override
-    public List<Author> authors() {
-        return authorRepository.findAll();
+    public List<AuthorViewDto> authors() {
+        return authorRepository.findAll().stream().map(author -> authorViewMapper.toDto(author)).collect(Collectors.toList());
     }
 
     @Override
     public List<Category> categories() {
         return categoryRepository.findAll();
+    }
+
+    @Override
+    public AuthorViewDto createAuthor(AuthorCreateDto authorCreateDto) {
+        Author author = authorCreateMapper.toModel(authorCreateDto);
+        authorRepository.save(author);
+        return authorViewMapper.toDto(author);
     }
 }

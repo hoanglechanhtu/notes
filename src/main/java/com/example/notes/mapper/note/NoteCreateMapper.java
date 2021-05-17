@@ -1,8 +1,9 @@
-package com.example.notes.mapper;
+package com.example.notes.mapper.note;
 
 import com.example.notes.data.Status;
 import com.example.notes.domain.Note;
-import com.example.notes.dto.NoteCreateDto;
+import com.example.notes.dto.note.NoteCreateDto;
+import com.example.notes.mapper.Mapper;
 import com.example.notes.repository.AuthorRepository;
 import com.example.notes.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
