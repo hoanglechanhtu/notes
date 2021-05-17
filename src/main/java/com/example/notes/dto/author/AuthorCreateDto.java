@@ -1,11 +1,11 @@
 package com.example.notes.dto.author;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.NonNull;
+import lombok.*;
 
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class AuthorCreateDto {
     @NonNull
     private String name;

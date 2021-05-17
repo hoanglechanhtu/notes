@@ -10,6 +10,7 @@ import com.example.notes.service.NoteService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -37,8 +38,8 @@ public class NoteController {
     })
     @PostMapping(value = "/notes")
     ResponseEntity createNotes(@RequestBody NoteCreateDto noteCreateDto) {
-        noteService.createNote(noteCreateDto);
-        return ResponseEntity.ok().build();
+        NoteViewDto noteViewDto = noteService.createNote(noteCreateDto);
+        return ResponseEntity.ok(noteViewDto);
     }
 
     @ApiOperation(value = "Update note")
@@ -64,9 +65,9 @@ public class NoteController {
             @ApiResponse(code = 400, message = "Bad request", response = AuthorViewDto.class)
     })
     @PostMapping(value = "/authors")
-    ResponseEntity createAuthor(@RequestBody AuthorCreateDto authorCreateDto) {
-        noteService.createAuthor(authorCreateDto);
-        return ResponseEntity.ok().build();
+    ResponseEntity createAuthor(@NonNull @RequestBody AuthorCreateDto authorCreateDto) {
+        AuthorViewDto authorViewDto = noteService.createAuthor(authorCreateDto);
+        return ResponseEntity.ok(authorViewDto);
     }
 
     @ApiOperation(value = "Update note")

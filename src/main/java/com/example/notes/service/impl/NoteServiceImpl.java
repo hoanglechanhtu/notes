@@ -19,14 +19,18 @@ import com.example.notes.repository.AuthorRepository;
 import com.example.notes.repository.CategoryRepository;
 import com.example.notes.repository.NoteRepository;
 import com.example.notes.service.NoteService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@Transactional
+@Slf4j
 public class NoteServiceImpl implements NoteService {
 
     @Autowired
@@ -49,6 +53,7 @@ public class NoteServiceImpl implements NoteService {
     private AuthorViewMapper authorViewMapper;
 
     @Override
+    @Transactional
     public AuthorViewDto updateAuthor(AuthorUpdateDto authorUpdateDto) {
         Optional<Author> authorOpt = authorRepository.findByUuid(authorUpdateDto.getUuid());
         authorOpt.ifPresent(author -> {
@@ -65,6 +70,7 @@ public class NoteServiceImpl implements NoteService {
     }
 
     @Override
+    @Transactional
     public NoteViewDto createNote(NoteCreateDto noteCreateDto) {
         Note note = noteCreateMapper.toModel(noteCreateDto);
         noteRepository.save(note);
@@ -72,6 +78,7 @@ public class NoteServiceImpl implements NoteService {
     }
 
     @Override
+    @Transactional
     public NoteViewDto updateNote(NoteUpdateDto noteUpdateDto) {
         Optional<Note> noteOptional = noteRepository.findById(noteUpdateDto.getId());
         if (noteOptional.isPresent()) {
@@ -93,6 +100,7 @@ public class NoteServiceImpl implements NoteService {
     }
 
     @Override
+    @Transactional
     public AuthorViewDto createAuthor(AuthorCreateDto authorCreateDto) {
         Author author = authorCreateMapper.toModel(authorCreateDto);
         authorRepository.save(author);

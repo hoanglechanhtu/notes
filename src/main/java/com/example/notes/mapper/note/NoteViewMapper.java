@@ -7,8 +7,10 @@ import com.example.notes.repository.AuthorRepository;
 import com.example.notes.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
+@Transactional
 public class NoteViewMapper implements Mapper<NoteViewDto, Note> {
 
     @Autowired

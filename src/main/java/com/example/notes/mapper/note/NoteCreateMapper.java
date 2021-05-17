@@ -33,8 +33,8 @@ public class NoteCreateMapper implements Mapper<NoteCreateDto, Note> {
                 .name(noteCreateDto.getName())
                 .context(noteCreateDto.getContext())
                 .status(Status.ACTIVATED)
-                .author(Objects.nonNull(noteCreateDto.getAuthorId()) ? authorRepository.getOne(noteCreateDto.getAuthorId()) : null)
-                .category(Objects.nonNull(noteCreateDto.getCategoryId()) ? categoryRepository.getOne(noteCreateDto.getCategoryId()) : null)
+                .author(Objects.nonNull(noteCreateDto.getAuthorId()) ? authorRepository.findById(noteCreateDto.getAuthorId()).orElse(null) : null)
+                .category(Objects.nonNull(noteCreateDto.getCategoryId()) ? categoryRepository.findById(noteCreateDto.getCategoryId()).orElse(null) : null)
                 .build();
 
     }
