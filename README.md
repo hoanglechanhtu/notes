@@ -10,5 +10,8 @@ Change SERVER_PORT to 5000, because Elastic Beanstalk assumes that application w
 Done
 ![image](https://user-images.githubusercontent.com/16283386/129476715-f055a278-ed31-4d16-92ee-1cf965cc6840.png)
 But what's wrong with the health check? There was no health check path configuration when i created and i couldn't find it after created too.
+It's in load balancer's configuration.
+![image](https://user-images.githubusercontent.com/16283386/129477039-5d6c4d4f-1b13-40df-8bd9-adce4ff2490a.png)
+Change the health check path, save and remember to Apply.
 
 
