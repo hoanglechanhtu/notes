@@ -13,5 +13,6 @@ But what's wrong with the health check? There was no health check path configura
 It's in load balancer's configuration.
 ![image](https://user-images.githubusercontent.com/16283386/129477039-5d6c4d4f-1b13-40df-8bd9-adce4ff2490a.png)
 Change the health check path, save and remember to Apply.
+## Using CodePipeline
 
 
