@@ -14,5 +14,28 @@ It's in load balancer's configuration.
 ![image](https://user-images.githubusercontent.com/16283386/129477039-5d6c4d4f-1b13-40df-8bd9-adce4ff2490a.png)
 Change the health check path, save and remember to Apply.
 ## Using CodePipeline
+buildspec.yml to build spring boot application
+```
+version: 0.2
 
+phases:
+  install:
+    runtime-versions:
+      java: corretto8
+  pre_build:
+    commands:
+      - echo "Entered the pre-build phase"
+  build:
+    commands:
+      - echo "Entered build phase"
+      - mvn clean install
+  post_build:
+     commands:
+       - echo "Entered the post-build phase"
+       - mv target/aws-note.jar app.jar
+artifacts:
+  files:
+    # publish the now top level app.jar as the artifact
+    - app.jar
+```
 
