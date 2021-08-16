@@ -83,4 +83,8 @@ The dependency files will be save in s3
 After set up dependency cache, you will see that the download source increase slightly and the build time decrease greatly from about 5 min to 16s.
 ![image](https://user-images.githubusercontent.com/16283386/129531001-bbb82174-5626-45b3-83a3-b0be1f03980c.png)
 
-
+## Logs and events
+### Create notifications when an EC2 instance is shutdown
+First, create SNS topic and email subscription.
+![image](https://user-images.githubusercontent.com/16283386/129592505-e49689ab-292f-46b1-86ba-7c01a5174352.png)
+Create a rule which will publish a message to topic whenever a EC2 instance is shutting down.
