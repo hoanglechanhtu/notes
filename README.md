@@ -49,3 +49,32 @@ Code build detail before cache
 To configure dependencies cache, go to Artifacts setting, add cache configuration.
 ![image](https://user-images.githubusercontent.com/16283386/129526391-d045c785-4d77-4b1c-a02b-98d6ca4258cf.png)
 
+Update build spec to specicfy dependecies folder
+buildspec.yml to build spring boot application
+```
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto8
+  pre_build:
+    commands:
+      - echo "Entered the pre-build phase"
+  build:
+    commands:
+      - echo "Entered build phase"
+      - mvn clean install
+  post_build:
+     commands:
+       - echo "Entered the post-build phase"
+       - mv target/aws-note.jar app.jar
+artifacts:
+  files:
+    # publish the now top level app.jar as the artifact
+    - app.jar
+cache:
+  paths:
+    - '/root/.m2/**/*'
+```
+
