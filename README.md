@@ -38,4 +38,7 @@ artifacts:
     # publish the now top level app.jar as the artifact
     - app.jar
 ```
+After create code pipeline, 
+![image](https://user-images.githubusercontent.com/16283386/129524214-68f56e18-ed44-4960-ae44-0ef0a1397748.png)
+
 
