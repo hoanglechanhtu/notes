@@ -80,3 +80,7 @@ cache:
 The dependency files will be save in s3
 ![image](https://user-images.githubusercontent.com/16283386/129530316-388ce6ab-5eea-4218-9d2a-4e6c02af9359.png)
 
+After set up dependency cache, you will see that the download source increase slightly and the build time decrease greatly from about 5 min to 16s.
+![image](https://user-images.githubusercontent.com/16283386/129531001-bbb82174-5626-45b3-83a3-b0be1f03980c.png)
+
+
