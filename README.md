@@ -41,4 +41,6 @@ artifacts:
 After create code pipeline, 
 ![image](https://user-images.githubusercontent.com/16283386/129524214-68f56e18-ed44-4960-ae44-0ef0a1397748.png)
 
+### CodeBuild will download dependencies everytime, how to cache the dependencies?
+![image](https://user-images.githubusercontent.com/16283386/129525567-09809cd9-c1b4-454f-9b16-267491d6220a.png)
 
