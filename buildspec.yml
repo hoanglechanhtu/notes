@@ -19,3 +19,6 @@ artifacts:
   files:
     # publish the now top level app.jar as the artifact
     - app.jar
+cache:
+  paths:
+    - '/root/.m2/**/*'
