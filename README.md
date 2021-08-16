@@ -43,4 +43,9 @@ After create code pipeline,
 
 ### CodeBuild will download dependencies everytime, how to cache the dependencies?
 ![image](https://user-images.githubusercontent.com/16283386/129525567-09809cd9-c1b4-454f-9b16-267491d6220a.png)
+Code build detail before cache
+![image](https://user-images.githubusercontent.com/16283386/129525895-a5e6d436-ddbd-48e0-8ef1-57d8d1e2125a.png)
+
+To configure dependencies cache, go to Artifacts setting, add cache configuration.
+![image](https://user-images.githubusercontent.com/16283386/129526391-d045c785-4d77-4b1c-a02b-98d6ca4258cf.png)
 
